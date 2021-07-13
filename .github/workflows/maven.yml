@@ -29,11 +29,9 @@ jobs:
       with:
         name: CodeCoverage Archive
         path: /home/runner/work/pipeline-hello-world/pipeline-hello-world/target/*
-    - name: Testspace client install & config
+    - uses: brpaz/godacov-action@v1
       if: success() || failure()
-      uses: testspace-com/setup-testspace@v1
       with:
-        domain: ${{github.repository_owner}}
-    - name: Testspace push test content
-      if: success() || failure()
-      run: testspace "[${{ github.workflow }}/${{ github.job}}]./testcontent/*.xml"
+          reportPath: '/home/runner/work/pipeline-hello-world/pipeline-hello-world/target/jacoco-ut/*'
+          codacyToken: I48hhLMnc1UD9MYGOKE5
+          commitId: ${{ github.sha }}
