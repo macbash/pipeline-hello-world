@@ -26,6 +26,7 @@ jobs:
     - name: CodeQuality PMD Tests
       run: mvn install
     - uses: actions/upload-artifact@v2
+      if: failure()
       with:
         name: CodeCoverage Archive
         path: /home/runner/work/pipeline-hello-world/pipeline-hello-world/target/*.*
