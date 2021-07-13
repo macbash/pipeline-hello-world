@@ -29,6 +29,9 @@ jobs:
       with:
         name: CodeCoverage Archive
         path: /home/runner/work/pipeline-hello-world/pipeline-hello-world/target/*
+    - name: Testspace Setup CLI
+      if: success() || failure()
+      uses: testspace-com/setup-testspace@v1.0.4
     - uses: brpaz/godacov-action@v1
       if: success() || failure()
       with:
