@@ -24,4 +24,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: CodeQuality PMD Tests
-      run: mvn -B cpd-check --file pom.xml
+      run: mvn -B pmd:cpd-check --file pom.xml
