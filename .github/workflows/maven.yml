@@ -32,3 +32,5 @@ jobs:
     - name: Testspace Setup CLI
       if: success() || failure()
       uses: testspace-com/setup-testspace@v1.0.4
+      with:
+        domain: ${{ github.repository_owner }}
