@@ -29,4 +29,4 @@ jobs:
       if: failure()
       with:
         name: CodeCoverage Archive
-        path: /home/runner/work/pipeline-hello-world/pipeline-hello-world/target/*.*
+        path: /home/runner/work/pipeline-hello-world/pipeline-hello-world/target/*
