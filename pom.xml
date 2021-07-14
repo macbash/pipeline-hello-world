@@ -108,15 +108,17 @@
 				</configuration>
 				<!-- separate execution for cpd and pmd to have seprate max violation 
 					count for cpd and pmd -->
-				 <failOnViolation>true</failOnViolation>
+				 
 				    <!-- printFailingErrors is pretty useful -->
-				    <printFailingErrors>true</printFailingErrors>
+				    
 				<executions>
 					<execution>
 						<id>pmd-cpd</id>
 						<phase>verify</phase>
 						<configuration>
 							<maxAllowedViolations>${cpd.max.violation}</maxAllowedViolations>
+							<failOnViolation>true</failOnViolation>
+							<printFailingErrors>true</printFailingErrors>
 						</configuration>
 						<goals>
 							<goal>cpd</goal>
@@ -128,6 +130,8 @@
 						<phase>verify</phase>
 						<configuration>
 							<maxAllowedViolations>${pmd.max.violation}</maxAllowedViolations>
+							<failOnViolation>true</failOnViolation>
+							<printFailingErrors>true</printFailingErrors>
 						</configuration>
 						<goals>
 							<goal>pmd</goal>
