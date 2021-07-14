@@ -22,15 +22,13 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: CodeQuality PMD Tests
-      run: mvn install
+    - name: Maven Pre-Reqs
+      run: mvn install  
+    - name: CodeQuality Check
+      if: success() || failure()
+      run: mvn pmd:pmd -X
     - uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
         name: CodeCoverage Archive
         path: /home/runner/work/pipeline-hello-world/pipeline-hello-world/target/*
-    - name: Testspace Setup CLI
-      if: success() || failure()
-      uses: testspace-com/setup-testspace@v1.0.4
-      with:
-        domain: ${{ github.repository_owner }}
